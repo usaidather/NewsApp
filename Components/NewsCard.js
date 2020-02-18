@@ -5,11 +5,13 @@ import { color } from 'react-native-reanimated'
 const { width, height } = Dimensions.get('window')
 
 const NewsCard = ({item }) => {
+    console.log(item)
     return (
         <View style={styles.cardView}>
             <Text style={styles.title}> {item.title}</Text>
             <Text style={styles.author}>{item.author} </Text>
-            <Image style={styles.image} source = {{uri: item.urlToImage}}/>
+            {/* <Image style={styles.image} source = {{uri: item.urlToImage}}/> */}
+            <Image style={styles.image} source={item.urlToImage ? {uri: item.urlToImage } : null}/>
             <Text style={styles.description}>{item.description}</Text>
         </View>
     )
